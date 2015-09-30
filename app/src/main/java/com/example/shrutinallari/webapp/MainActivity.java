@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -79,6 +80,15 @@ public class MainActivity extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK) && w1.canGoBack()) {
+            w1.goBack();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 };
