@@ -49,40 +49,6 @@ public class MainActivity extends Activity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main, menu);
-        if (w1.canGoBack() == true) {
-            menu.findItem(R.id.action_back).setVisible(true);
-            return true;
-        } else if (w1.canGoForward() == true) {
-            menu.findItem(R.id.action_frwd).setVisible(true);
-            return true;
-        }
-
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle presses on the action bar items
-        switch (item.getItemId()) {
-            case R.id.action_back:
-                if (w1.canGoBack() == true) {
-                    w1.goBack();
-                    return true;
-                }
-            case R.id.action_frwd:
-                if (w1.canGoForward() == true) {
-                    w1.goForward();
-                    return true;
-                }
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK) && w1.canGoBack()) {
             w1.goBack();
